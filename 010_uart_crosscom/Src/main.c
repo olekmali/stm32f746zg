@@ -113,24 +113,24 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	unsigned char buffer[2];
-	GPIO_PinState new_state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-	if ( state!=new_state || sync_count==0 ) { // send new data only if data changed or if time for sync data frame
-		state=new_state;
-		sync_count = 100;
-		if (state) {
-			buffer[0]='1';
-		} else {
-			buffer[0]='0';
-		}
-		HAL_UART_Transmit(&huart2, buffer, 1, 5);
-	} else {
-		if (sync_count>0) {
-			sync_count--;
-		}
-	}
+    unsigned char buffer[2];
+    GPIO_PinState new_state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+    if ( state!=new_state || sync_count==0 ) { // send new data only if data changed or if time for sync data frame
+        state=new_state;
+        sync_count = 100;
+        if (state) {
+            buffer[0]='1';
+        } else {
+            buffer[0]='0';
+        }
+        HAL_UART_Transmit(&huart2, buffer, 1, 5);
+    } else {
+        if (sync_count>0) {
+            sync_count--;
+        }
+    }
 
-	HAL_StatusTypeDef status = HAL_UART_Receive(&huart2, buffer, 1, 0);
+    HAL_StatusTypeDef status = HAL_UART_Receive(&huart2, buffer, 1, 0);
     // Note: timeout of 0ms means that either a byte is already received and waiting or timeout is returned
     if ( HAL_OK == status ) {
       if (buffer[0]=='0') {

@@ -70,15 +70,15 @@ void task_competing_process(void const * argument);
 /* USER CODE BEGIN 0 */
 BaseType_t getCommand() {
 
-	while( xSemaphoreTake(only_one_at_a_timeHandle, 1000) != pdTRUE )
-		; // wait up to forever for the mutex access
+    while( xSemaphoreTake(only_one_at_a_timeHandle, 1000 / portTICK_PERIOD_MS ) != pdTRUE )
+        ; // wait up to forever for the mutex access
 
-	char command[20];
-	BaseType_t  pos = 0;
+    char command[20];
+    BaseType_t  pos = 0;
     uint8_t buffer;
     do {
-        while( xQueueReceive(uart3_rx_queueHandle, &buffer, 1000) != pdTRUE )
-        	; // wait up to forever to receive a character
+        while( xQueueReceive(uart3_rx_queueHandle, &buffer, 1000 / portTICK_PERIOD_MS ) != pdTRUE )
+            ; // wait up to forever to receive a character
         if ( buffer!='\r'&& buffer!='\n' ) {
           command[pos] = buffer;
           pos++;
@@ -90,10 +90,10 @@ BaseType_t getCommand() {
 
     BaseType_t result = -1;
     if ( strcmp(command, "off")==0 )
-    	result = 0;
+        result = 0;
     else if ( strcmp(command, "on")==0 )
-    	result = 1;
-	return(result);
+        result = 1;
+    return(result);
 }
 /* USER CODE END 0 */
 
@@ -388,13 +388,13 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
-	  /* Infinite loop */
-	  for(;;)
-	  {
-	    // Keep alive indicator
-	    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-	    osDelay(500);
-	  }
+      /* Infinite loop */
+      for(;;)
+      {
+        // Keep alive indicator
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+        osDelay(500); // or use vTaskDelay( 500 / portTICK_PERIOD_MS );
+      }
   /* USER CODE END 5 */ 
 }
 
@@ -411,7 +411,7 @@ void task_process_uart3(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  BaseType_t command = getCommand();
+      BaseType_t command = getCommand();
     if ( command==0 ) {
       HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
     } else if ( command==1 ) {
@@ -436,14 +436,14 @@ void task_competing_process(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  BaseType_t command = getCommand();
-	if ( command==0 ) {
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-	} else if ( command==1 ) {
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-	} else{
-	// nothing - unrecognized command
-	}
+      BaseType_t command = getCommand();
+    if ( command==0 ) {
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+    } else if ( command==1 ) {
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+    } else{
+    // nothing - unrecognized command
+    }
   }
   /* USER CODE END task_competing_process */
 }

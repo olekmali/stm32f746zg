@@ -131,24 +131,24 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 10);
-	uint32_t adc_raw = HAL_ADC_GetValue(&hadc1);
-	uint32_t pwm_out = (adc_raw * 255U) / 4095U;
-	unsigned char buffer[2];
-	buffer[0] = (uint8_t)pwm_out;
-	HAL_UART_Transmit(&huart2, buffer, 1, 1);
-	// TIM3->CCR3 = (adc_raw * 1000U) / 4095U; 						/* testing local control of PWM rate */
-	// TIM3->CCR3 = ( ((uint32_t)buffer[0]) * 1000U) / 255U;			/* testing one byte scaling of PWM rate */
-	HAL_StatusTypeDef recv_status = HAL_UART_Receive(&huart2, buffer, 1, 1);
-	if ( recv_status == HAL_OK ) {
-		TIM3->CCR3 = ( ((uint32_t)buffer[0]) * 1000U) / 255U;  /* Setting PWM rate based on the received data */
-		timeout_reset();
-	} else /* not received or received with an error */ {
-		if ( timeout_expired() ) {
-			TIM3->CCR3 = 0;
-		}
-	}
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 10);
+    uint32_t adc_raw = HAL_ADC_GetValue(&hadc1);
+    uint32_t pwm_out = (adc_raw * 255U) / 4095U;
+    unsigned char buffer[2];
+    buffer[0] = (uint8_t)pwm_out;
+    HAL_UART_Transmit(&huart2, buffer, 1, 1);
+    // TIM3->CCR3 = (adc_raw * 1000U) / 4095U;                         /* testing local control of PWM rate */
+    // TIM3->CCR3 = ( ((uint32_t)buffer[0]) * 1000U) / 255U;            /* testing one byte scaling of PWM rate */
+    HAL_StatusTypeDef recv_status = HAL_UART_Receive(&huart2, buffer, 1, 1);
+    if ( recv_status == HAL_OK ) {
+        TIM3->CCR3 = ( ((uint32_t)buffer[0]) * 1000U) / 255U;  /* Setting PWM rate based on the received data */
+        timeout_reset();
+    } else /* not received or received with an error */ {
+        if ( timeout_expired() ) {
+            TIM3->CCR3 = 0;
+        }
+    }
 
   }
   /* USER CODE END 3 */

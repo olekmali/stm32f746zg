@@ -351,9 +351,9 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  if( xSemaphoreTake( detected_buttonHandle, ( TickType_t ) 1000 ) == pdTRUE ) {
-		  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
-	  }
+      if( xSemaphoreTake( detected_buttonHandle, 1000 / portTICK_PERIOD_MS ) == pdTRUE ) {
+          HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+      }
   }
   /* USER CODE END 5 */ 
 }

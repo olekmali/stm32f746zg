@@ -110,11 +110,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  for (uint32_t coef=0; coef<2000; coef=coef+100 )
-	  {
-		  TIM3->CCR3 = coef;
-		  HAL_Delay(100);
-	  }
+      for (uint32_t coef=0; coef<2000; coef=coef+100 )
+      {
+          TIM3->CCR3 = coef;
+          HAL_Delay(100);
+      }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

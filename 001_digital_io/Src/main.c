@@ -105,11 +105,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	    if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)) {	                // checks if BUTTON is set
-	        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);     // switch on LED1
-	    } else {
-	        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);   // switch off LED1
-	    }
+        if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)) {                    // checks if BUTTON is set
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);     // switch on LED1
+        } else {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);   // switch off LED1
+        }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

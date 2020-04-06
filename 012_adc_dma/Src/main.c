@@ -123,15 +123,15 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_ADC_Start_DMA(&hadc1, buffer, 3);
-	while ( flag_adc1!=1 )
-	  ;
-	HAL_ADC_Stop_DMA(&hadc1);
-	flag_adc1 = 0; // indicates that we consumed the data
+    while ( flag_adc1!=1 )
+      ;
+    HAL_ADC_Stop_DMA(&hadc1);
+    flag_adc1 = 0; // indicates that we consumed the data
 
-	uint32_t ch5_voltage = (raw_adc[0] * 3300U) / 4095U;
-	uint32_t ch6_voltage = (raw_adc[1] * 3300U) / 4095U;
-	uint32_t cht_voltage = (raw_adc[2] * 3300U) / 4095U;
-	uint32_t temperature = 250 + (cht_voltage*10 - 760U) /25; // V25 = 0.76V, avg slope = 2.5mV/C
+    uint32_t ch5_voltage = (raw_adc[0] * 3300U) / 4095U;
+    uint32_t ch6_voltage = (raw_adc[1] * 3300U) / 4095U;
+    uint32_t cht_voltage = (raw_adc[2] * 3300U) / 4095U;
+    uint32_t temperature = 250 + (cht_voltage*10 - 760U) /25; // V25 = 0.76V, avg slope = 2.5mV/C
 
     char buffer[80];
     sprintf(buffer, "%lu\t%lu\t%lu\t%lu\r\n",

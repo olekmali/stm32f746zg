@@ -76,7 +76,7 @@ static void MX_DAC_Init(void);
 
 void calcsin () {
   for (int i=0; i<100; i++) {
-	  dac_buffer[i] = ((sin(i*2*PI/100) + 1)*(4096/2));
+      dac_buffer[i] = ((sin(i*2*PI/100) + 1)*(4096/2));
   }
 }
 /* USER CODE END 0 */

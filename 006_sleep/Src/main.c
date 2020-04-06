@@ -101,18 +101,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	HAL_SuspendTick();
-	HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-	HAL_ResumeTick();
+    HAL_SuspendTick();
+    HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+    HAL_ResumeTick();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	for (unsigned int cnt=0; cnt<3; cnt++) {
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-	  HAL_Delay(500);
-	}
+    for (unsigned int cnt=0; cnt<3; cnt++) {
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+      HAL_Delay(500);
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+      HAL_Delay(500);
+    }
   }
   /* USER CODE END 3 */
 }

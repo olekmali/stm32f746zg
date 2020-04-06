@@ -351,13 +351,13 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
-	  /* Infinite loop */
-	  for(;;)
-	  {
-	    // Keep alive indicator
-	    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-	    osDelay(500);
-	  }
+      /* Infinite loop */
+      for(;;)
+      {
+        // Keep alive indicator
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+        osDelay(500); // or use vTaskDelay( 500 / portTICK_PERIOD_MS );
+      }
   /* USER CODE END 5 */ 
 }
 
@@ -375,7 +375,7 @@ void task_process_uart3(void const * argument)
   for(;;)
   {
       uint8_t buffer;
-      BaseType_t status = xQueueReceive(uart3_rx_queueHandle, &buffer, 1000);
+      BaseType_t status = xQueueReceive(uart3_rx_queueHandle, &buffer, 1000 / portTICK_PERIOD_MS );
       // Note: timeout of 0ms means that either a byte is already received and waiting or timeout is returned
       if ( status ) {
         if ( buffer=='0' ) {

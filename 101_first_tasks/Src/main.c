@@ -359,9 +359,9 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	// Keep alive indicator
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-	osDelay(500);
+    // Keep alive indicator
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+    osDelay(500); // or use vTaskDelay( 500 / portTICK_PERIOD_MS );
   }
   /* USER CODE END 5 */ 
 }
@@ -380,13 +380,13 @@ void task_scanButton(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	GPIO_PinState b = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-	if (b!=old) {
-		uint8_t message = b; // must be the same type size as the type size used for queue declaration
-		xQueueSend(myFirstQueueHandle, &message, 1);
-		old=b;
-	}
-	osDelay(10);
+    GPIO_PinState b = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+    if (b!=old) {
+        uint8_t message = b; // must be the same type size as the type size used for queue declaration
+        xQueueSend(myFirstQueueHandle, &message, 1 / portTICK_PERIOD_MS );
+        old=b;
+    }
+    osDelay(10); // or use vTaskDelay( 10 / portTICK_PERIOD_MS );
   }
   /* USER CODE END task_scanButton */
 }
@@ -404,17 +404,17 @@ void task_setLED(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	uint8_t message; // must be the same type size as the type size used for queue declaration
-	BaseType_t status = xQueueReceive(myFirstQueueHandle, &message, 1000);
-	if (status) {
-	  if (message)
-	    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-	  else
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-	} else {
-	  // e.g. power off on no information received over long period of time
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-	}
+    uint8_t message; // must be the same type size as the type size used for queue declaration
+    BaseType_t status = xQueueReceive(myFirstQueueHandle, &message, 1000 / portTICK_PERIOD_MS );
+    if (status) {
+      if (message)
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+      else
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+    } else {
+      // e.g. power off on no information received over long period of time
+      HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+    }
   }
   /* USER CODE END task_setLED */
 }

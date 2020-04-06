@@ -477,9 +477,9 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	// Keep alive indicator
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-    osDelay(500);
+    // Keep alive indicator
+    HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+    osDelay(500); // or use vTaskDelay( 500 / portTICK_PERIOD_MS );
   }
   /* USER CODE END 5 */ 
 }
@@ -498,14 +498,14 @@ void task_readADC(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_PollForConversion(&hadc1, 1);
-	uint32_t raw_result5 = HAL_ADC_GetValue(&hadc1);
-	uint16_t message = (raw_result5 * 1000U) / 4095U; // data type identical in size to those in queue setup
-	/* BaseType_t status = */ xQueueSend(msgPWMHandle, &message, 2);
-	// Note: we can check the status if desired and report an error, e.g., blink the RED LED if the buffer is full
-	// and do it every 10 OS ticks as set up
-	vTaskDelayUntil( &xLastWakeTime, 10 ); // Note: feature vTaskDelayUntil needs to be enabled in FreeRTOSconfig (see STM32CubeMX settings)
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 1);
+    uint32_t raw_result5 = HAL_ADC_GetValue(&hadc1);
+    uint16_t message = (raw_result5 * 1000U) / 4095U; // data type identical in size to those in queue setup
+    /* BaseType_t status = */ xQueueSend(msgPWMHandle, &message, 2 / portTICK_PERIOD_MS );
+    // Note: we can check the status if desired and report an error, e.g., blink the RED LED if the buffer is full
+    // and do it every 10 OS ticks as set up
+    vTaskDelayUntil( &xLastWakeTime, 10 ); // Note: feature vTaskDelayUntil needs to be enabled in FreeRTOSconfig (see STM32CubeMX settings)
   }
   /* USER CODE END task_readADC */
 }
@@ -523,16 +523,16 @@ void task_setPWM(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	uint16_t message; // data type identical in size to those in queue setup
-	BaseType_t status = xQueueReceive(msgPWMHandle, &message, 10000);
-	if (status ) {
-	  if (message<=1000U) {
-		  TIM3->CCR3 = message;
-	  }
-	} else {
-		// let's shut down PWM if no update in 10,000 milliseconds
-		TIM3->CCR3 = 0;
-	}
+    uint16_t message; // data type identical in size to those in queue setup
+    BaseType_t status = xQueueReceive(msgPWMHandle, &message, 10000 / portTICK_PERIOD_MS );
+    if (status ) {
+      if (message<=1000U) {
+          TIM3->CCR3 = message;
+      }
+    } else {
+        // let's shut down PWM if no update in 10,000 milliseconds
+        TIM3->CCR3 = 0;
+    }
   }
   /* USER CODE END task_setPWM */
 }
