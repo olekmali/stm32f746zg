@@ -411,7 +411,7 @@ void taskTranscodeFn(void const * argument)
   for(;;)
   {
 	  uint8_t buffer;
-      BaseType_t status = xQueueReceive(uart3_rx_queueHandle, &buffer, 10);
+      BaseType_t status = xQueueReceive(uart3_rx_queueHandle, &buffer, 10 / portTICK_PERIOD_MS );
       // Note: timeout of 0ms means that either a byte is already received and waiting or timeout is returned
       if ( status ) {
           uint8_t i;
@@ -465,9 +465,9 @@ void taskBeepFn(void const * argument)
   for(;;)
   {
         uint8_t message; // must be the same type size as the type size used for queue declaration
-        BaseType_t status = xQueueReceive(QtranscodeHandle, &message, 1000);
+        BaseType_t status = xQueueReceive(QtranscodeHandle, &message, 1000 / portTICK_PERIOD_MS );
         if (status) {
-            // swittch off GREEN - typing OK
+            // switch off GREEN - typing OK
             if (message=='.') {
                 // ON wait 60 OFF wait 60
             } else if (message=='-') {
@@ -475,9 +475,9 @@ void taskBeepFn(void const * argument)
             } else if (message==' ') {
                 // wait ???        wait using osDelay(1);
             }
-            } else {
-            // switch on GREEN - type faster!!! dead silence on air
-            }
+		} else {
+			// switch on GREEN - type faster!!! dead silence on air
+		}
   }
   /* USER CODE END taskBeepFn */
 }

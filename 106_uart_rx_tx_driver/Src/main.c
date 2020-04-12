@@ -525,7 +525,7 @@ void task_competing_process(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    xSerialPutChar('X', 5);
+    xSerialPutChar('X', 5 / portTICK_PERIOD_MS );
     vTaskDelayUntil( &xLastWakeTime, (100 / portTICK_PERIOD_MS) );
   }
   /* USER CODE END task_competing_process */
