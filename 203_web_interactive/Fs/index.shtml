@@ -21,12 +21,11 @@ each tag name (like those below) cannot be longer than 8 characters-->
 
 <form action="/setall.cgi">
 <table>
-<!-- there is a problem with value parameter and SSI.
-     the server ads instead of replacing a tag.
-     so value="<! -- # tag -- >" cannot be used -->
-<tr><td>Red</td>  <td><input type="text" size="3" name="red"   value="" ></td></tr>
-<tr><td>Green</td><td><input type="text" size="3" name="green" value="" ></td></tr>
-<tr><td>Blue</td> <td><input type="text" size="3" name="blue"  value="" ></td></tr>
+<!-- Set LWIP_HTTPD_SSI_INCLUDE_TAG: Disabled.
+     Otherwise, the server ads content after the tag instead of replacing a tag. -->
+<tr><td>Red</td>  <td><input type="text" size="3" name="red"   value="<!--#lred-->" ></td></tr>
+<tr><td>Green</td><td><input type="text" size="3" name="green" value="<!--#lgreen-->" ></td></tr>
+<tr><td>Blue</td> <td><input type="text" size="3" name="blue"  value="<!--#lblue-->" ></td></tr>
 </table>
 <input type="submit" value="set all">
 </form>

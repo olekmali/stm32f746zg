@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=D:/PROJECTS/RTOS/STM/DEMOS/203_web_intercative/Inc
+HeaderPath=D:/PROJECTS/RTOS/STM/DEMOS/203_web_interactive/Inc
 HeaderFiles=FreeRTOSConfig.h;lwip.h;lwipopts.h;ethernetif.h;stm32f7xx_it.h;stm32f7xx_hal_conf.h;main.h;
-SourcePath=D:/PROJECTS/RTOS/STM/DEMOS/203_web_intercative/Src
+SourcePath=D:/PROJECTS/RTOS/STM/DEMOS/203_web_interactive/Src
 SourceFiles=freertos.c;lwip.c;ethernetif.c;stm32f7xx_it.c;stm32f7xx_hal_msp.c;stm32f7xx_hal_timebase_tim.c;main.c;
 
 [PreviousLibFiles]

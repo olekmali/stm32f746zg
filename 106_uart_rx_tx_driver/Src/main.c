@@ -72,7 +72,7 @@ void task_competing_process(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-signed portBASE_TYPE xSerialGetChar( signed char *pcRxedChar, TickType_t xBlockTime )
+signed portBASE_TYPE xSerialGetChar( char *pcRxedChar, TickType_t xBlockTime )
 {
     /* Get the next character from the buffer.  Return false if no characters
     are available, or arrive before xBlockTime expires. */
@@ -84,7 +84,7 @@ signed portBASE_TYPE xSerialGetChar( signed char *pcRxedChar, TickType_t xBlockT
     }
 }
 
-signed portBASE_TYPE xSerialPutChar( signed char cOutChar, TickType_t xBlockTime )
+signed portBASE_TYPE xSerialPutChar( char cOutChar, TickType_t xBlockTime )
 {
     signed portBASE_TYPE xReturn;
 

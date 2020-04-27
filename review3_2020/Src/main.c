@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
 #include "lwip/apps/httpd.h"
 
 /* USER CODE END Includes */
@@ -64,6 +65,90 @@ void StartDefaultTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+const int custom_SSI_tag_num = 4;
+const char* custom_SSI_tags[] = {"lred", "lgreen", "lblue", "buser"};
+
+uint16_t custom_SSI_handler(const char* ssi_tag_name, char *pcInsert, int iInsertLen)
+{
+	if ( iInsertLen < 10 ) {
+	  // if the buffer size is smaller than the longest response then indicate an error
+	  return(-1);
+	}
+
+	if (strcmp(ssi_tag_name, custom_SSI_tags[0])==0) {
+	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_14)) {
+		  strcpy(pcInsert, "1");
+	  } else {
+		  strcpy(pcInsert, "0");
+	  }
+	  return(strlen(pcInsert));
+	}  else if (strcmp(ssi_tag_name, custom_SSI_tags[1])==0) {
+	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
+		  strcpy(pcInsert, "1");
+	  } else {
+		  strcpy(pcInsert, "0");
+	  }
+	  return(strlen(pcInsert));
+	} else if (strcmp(ssi_tag_name, custom_SSI_tags[2])==0) {
+	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7)) {
+		  strcpy(pcInsert, "1");
+	  } else {
+		  strcpy(pcInsert, "0");
+	  }
+	  return(strlen(pcInsert));
+	} else if (strcmp(ssi_tag_name, custom_SSI_tags[3])==0) {
+	  if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13)) {
+		  strcpy(pcInsert, "pressed");
+	  } else {
+		  strcpy(pcInsert, "released");
+	  }
+	  return(strlen(pcInsert));
+	} else {
+	  // otherwise, return unrecognized tag error
+	return(-1);
+	}
+}
+
+
+
+
+const char * setALL(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
+{
+    // Warning: use atoi_r instead of atoi in case you also use this function inside a RTOS task
+    for (int i=0; i<iNumParams; i++) {
+        if (strcmp(pcParam[i],"red")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+            }
+        } else if (strcmp(pcParam[i],"green")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+            }
+        } else if (strcmp(pcParam[i],"blue")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+            }
+        } // else invalid parameters are simply ignored in this example
+    }
+    // we return the status page as confirmation in this example
+    return("/index.shtml");
+}
+
+#define custon_CGI_handler_num 1
+const tCGI custom_CGI_handlers[custon_CGI_handler_num] = {
+    //  file name   function called
+    {"/setall.cgi",   setALL}
+};
+
+
+
+
 
 /* USER CODE END 0 */
 
@@ -100,6 +185,9 @@ int main(void)
   MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
   //start the web server after MX_LWIP_Init() is called
+  //set up the web server
+  http_set_ssi_handler(custom_SSI_handler, custom_SSI_tags, custom_SSI_tag_num);
+  http_set_cgi_handlers(custom_CGI_handlers, custon_CGI_handler_num);
   httpd_init();
 
   /* USER CODE END 2 */
