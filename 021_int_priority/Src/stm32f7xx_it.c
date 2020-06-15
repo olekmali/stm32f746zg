@@ -221,12 +221,15 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);     // switch on LED2
+  // HAL_Delay(2000); // uncomment to test if the HAL System Timer still works
   while ( HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) )
   {
     // we are stalling inside the interrupt while the button is pressed - very bad practice
     // we do this to see if the Timer interrupt preempts this interrupt and toggles the LED
     // for the complete learning experience play with the priorities of these two interrupts
   }
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);   // switch off LED2
   /* USER CODE END EXTI15_10_IRQn 1 */
 }
 

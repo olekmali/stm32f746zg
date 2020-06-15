@@ -106,6 +106,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);     // switch on LED3
+	HAL_Delay(500);                                         // 500 ms delay
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);   // switch off LED3
+	HAL_Delay(500);                                         // 500 ms delay
   }
   /* USER CODE END 3 */
 }
