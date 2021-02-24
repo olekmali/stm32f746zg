@@ -205,31 +205,31 @@ void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
   static char command[20] = ""; // note: global variable initialized only once
-  static unsigned int len = 0;	// note: global variable initialized only once
+  static unsigned int len = 0;  // note: global variable initialized only once
 
   static unsigned char buffer[2];
   HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, buffer, 1, 0); // we are inside an interrupt - timeout of 0!
   if ( HAL_OK == status ) {
     if ( len<20 ) {
-    	if ( buffer[0]=='\n' || buffer[0]=='\r' ) {
-    		command[len] = '\0';
-            if ( strcmp(command,"on") == 0 ) {
-            	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-            } else if ( strcmp(command,"off") == 0 ) {
-            	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-            } else {
-            	// nothing - command not recognized
-            }
-            len = 0;
-    	} else {
-    		command[len] = buffer[0];
-    		len++;
-    	}
+      if ( buffer[0]=='\n' || buffer[0]=='\r' ) {
+        command[len] = '\0';
+        if ( strcmp(command,"on") == 0 ) {
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+        } else if ( strcmp(command,"off") == 0 ) {
+          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+        } else {
+          // nothing - command not recognized
+        }
+        len = 0;
+      } else {
+        command[len] = buffer[0];
+        len++;
+      }
     } else {
-    	// buffer full, ignore this command
-    	if ( buffer[0]=='\n' || buffer[0]=='\r' ) {
-    		len = 0;
-    	}
+      // buffer full, ignore this command
+      if ( buffer[0]=='\n' || buffer[0]=='\r' ) {
+        len = 0;
+      }
     }
   }
   /* USER CODE END USART3_IRQn 0 */

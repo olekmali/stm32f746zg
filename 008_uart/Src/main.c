@@ -109,37 +109,37 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      GPIO_PinState new_state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
-      if (state!=new_state) {
-        state=new_state;
-        HAL_Delay(10); // delay for debouncing
-        // sending text over fast 115200bps will cause delay of 1ms per 10 characters
-        // sending text over slow   9600bps will cause delay of 1ms per character - set timeout accordingly
-        if (state) {
-          HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
-          HAL_UART_Transmit(&huart3, "button pressed\r\n", 16, 2);
-          if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
-            HAL_UART_Transmit(&huart3, "LED is on\r\n", 11, 2);
-          } else {
-            HAL_UART_Transmit(&huart3, "LED is off\r\n", 12, 2);
-          }
+    GPIO_PinState new_state = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
+    if (state!=new_state) {
+      state=new_state;
+      HAL_Delay(10); // delay for debouncing
+      // sending text over fast 115200bps will cause delay of 1ms per 10 characters
+      // sending text over slow   9600bps will cause delay of 1ms per character - set timeout accordingly
+      if (state) {
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+        HAL_UART_Transmit(&huart3, "button pressed\r\n", 16, 2);
+        if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0)) {
+          HAL_UART_Transmit(&huart3, "LED is on\r\n", 11, 2);
         } else {
-          HAL_UART_Transmit(&huart3, "button released\r\n", 17, 2);
+          HAL_UART_Transmit(&huart3, "LED is off\r\n", 12, 2);
         }
+      } else {
+        HAL_UART_Transmit(&huart3, "button released\r\n", 17, 2);
       }
+    }
 
-      unsigned char buffer[2];
-      HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, buffer, 1, 0);
-      // Note: timeout of 0ms means that either a byte is already received and waiting or timeout is returned
-      if ( HAL_OK == status ) {
-        if (buffer[0]=='0') {
-          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-        } else if (buffer[0]=='1') {
-          HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-        } else{
-          // nothing - unrecognized command
-        }
+    unsigned char buffer[2];
+    HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, buffer, 1, 0);
+    // Note: timeout of 0ms means that either a byte is already received and waiting or timeout is returned
+    if ( HAL_OK == status ) {
+      if (buffer[0]=='0') {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+      } else if (buffer[0]=='1') {
+        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+      } else{
+        // nothing - unrecognized command
       }
+    }
   }
   /* USER CODE END 3 */
 }

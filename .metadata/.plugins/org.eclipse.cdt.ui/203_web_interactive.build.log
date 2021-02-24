@@ -1,0 +1,10 @@
+21:48:56 **** Incremental Build of configuration Debug for project 203_web_interactive ****
+make -j8 all 
+arm-none-eabi-size   203_web_interactive.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 110520	    516	  46380	 157416	  266e8	203_web_interactive.elf
+Finished building: default.size.stdout
+ 
+
+21:48:57 Build Finished. 0 errors, 0 warnings. (took 738ms)
+

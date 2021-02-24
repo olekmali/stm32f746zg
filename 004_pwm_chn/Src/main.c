@@ -96,6 +96,7 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_2);
+  TIM1->CCR2 = 500; // 0 - 2000, as the period in CubeMX was set to 2000 count)
 
   /* USER CODE END 2 */
 
@@ -106,11 +107,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	for (uint32_t coef=0; coef<2000; coef=coef+100 )
-	{
-	  TIM1->CCR2 = coef;
-	  HAL_Delay(100);
-	}
+    for (uint32_t coef=0; coef<2000; coef=coef+100 )
+    {
+      TIM1->CCR2 = coef;
+      HAL_Delay(100);
+    }
   }
   /* USER CODE END 3 */
 }

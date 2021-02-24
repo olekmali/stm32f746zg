@@ -1,0 +1,10 @@
+21:48:59 **** Incremental Build of configuration Debug for project 206_mqtt ****
+make -j8 all 
+arm-none-eabi-size   206_mqtt.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 101488	    500	  45796	 147784	  24148	206_mqtt.elf
+Finished building: default.size.stdout
+ 
+
+21:48:59 Build Finished. 0 errors, 0 warnings. (took 605ms)
+

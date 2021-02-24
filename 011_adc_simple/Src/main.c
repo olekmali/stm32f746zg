@@ -108,31 +108,31 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      // Note: all setup analog channels will be read in round robin fashion, enable "discontinuous mode"
-      //       this is an inferior method to use of DMA and a callback function
-      HAL_ADC_Start(&hadc1);
-      HAL_ADC_PollForConversion(&hadc1, 10);
-      uint32_t raw_result5 = HAL_ADC_GetValue(&hadc1);
-      uint32_t ch5_voltage = (raw_result5 * 3300U) / 4095U;
-      // Note: 4095 is the constant for 12bit right aligned mode
-      HAL_ADC_Start(&hadc1);
-      HAL_ADC_PollForConversion(&hadc1, 10);
-      uint32_t raw_result6 = HAL_ADC_GetValue(&hadc1);
-      uint32_t ch6_voltage = (raw_result6 * 3300U) / 4095U;
-      HAL_ADC_Start(&hadc1);
-      HAL_ADC_PollForConversion(&hadc1, 10);
-      uint32_t raw_temp = HAL_ADC_GetValue(&hadc1);
-      uint32_t cht_voltage = (raw_temp * 3300U) / 4095U;
-      uint32_t temperature = 250 + (cht_voltage*10 - 760U) /25; // V25 = 0.76V, avg slope = 2.5mV/C
-      HAL_ADC_Stop(&hadc1); // optional, makes sure that you restart channels from the first defined
+    // Note: all setup analog channels will be read in round robin fashion, enable "discontinuous mode"
+    //       this is an inferior method to use of DMA and a callback function
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 10);
+    uint32_t raw_result5 = HAL_ADC_GetValue(&hadc1);
+    uint32_t ch5_voltage = (raw_result5 * 3300U) / 4095U;
+    // Note: 4095 is the constant for 12bit right aligned mode
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 10);
+    uint32_t raw_result6 = HAL_ADC_GetValue(&hadc1);
+    uint32_t ch6_voltage = (raw_result6 * 3300U) / 4095U;
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 10);
+    uint32_t raw_temp = HAL_ADC_GetValue(&hadc1);
+    uint32_t cht_voltage = (raw_temp * 3300U) / 4095U;
+    uint32_t temperature = 250 + (cht_voltage*10 - 760U) /25; // V25 = 0.76V, avg slope = 2.5mV/C
+    HAL_ADC_Stop(&hadc1); // optional, makes sure that you restart channels from the first defined
 
-      char buffer[80];
-      sprintf(buffer, "%lu\t%lu\t\t%lu\t%lu\t\t%lu\t%lu\t%lu\r\n",
-              raw_result5, ch5_voltage,
-              raw_result6, ch6_voltage,
-              raw_temp, cht_voltage, temperature);
-      HAL_UART_Transmit(&huart3, buffer, strlen(buffer), 10);
-      HAL_Delay(500);
+    char buffer[80];
+    sprintf(buffer, "%lu\t%lu\t\t%lu\t%lu\t\t%lu\t%lu\t%lu\r\n",
+            raw_result5, ch5_voltage,
+            raw_result6, ch6_voltage,
+            raw_temp, cht_voltage, temperature);
+    HAL_UART_Transmit(&huart3, buffer, strlen(buffer), 10);
+    HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }

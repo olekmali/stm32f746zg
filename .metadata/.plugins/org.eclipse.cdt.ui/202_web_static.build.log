@@ -1,0 +1,10 @@
+21:48:55 **** Incremental Build of configuration Debug for project 202_web_static ****
+make -j8 all 
+arm-none-eabi-size   202_web_static.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 104912	    136	  46360	 151408	  24f70	202_web_static.elf
+Finished building: default.size.stdout
+ 
+
+21:48:55 Build Finished. 0 errors, 0 warnings. (took 689ms)
+

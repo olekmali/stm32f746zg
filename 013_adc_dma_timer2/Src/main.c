@@ -71,7 +71,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
   if ( hadc == &hadc1 ) { // check which ADC is being serviced
     for (int i =0; i<3; i++) {
-       raw_adc[i] = buffer[i];
+      raw_adc[i] = buffer[i];
     }
     flag_adc1 = 1;
   }

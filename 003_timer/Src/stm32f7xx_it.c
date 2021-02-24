@@ -203,7 +203,7 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
+  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */

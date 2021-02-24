@@ -207,17 +207,16 @@ void TIM3_IRQHandler(void)
   static uint32_t coef  = 0;
 
   if (delay<100) {
-	  delay++;
+    delay++;
   } else {
-	  delay = 0;
-
-	  // every 100 ms adjust the PWM demo
-	  if (coef<2000) {
-		  coef = coef + 100;
-	  } else {
-		  coef = 0;
-	  }
-	  TIM3->CCR3 = coef;
+    delay = 0;
+    // every 100 ms adjust the PWM demo
+    if (coef<2000) {
+      coef = coef + 100;
+    } else {
+      coef = 0;
+    }
+    TIM3->CCR3 = coef;
   }
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);

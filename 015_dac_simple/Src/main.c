@@ -109,14 +109,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      for(uint32_t val = 0 ; val<4096; val++) {
-          HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val);
-          HAL_Delay(1);
-      }
-      for(uint32_t val = 4094 ; val>00; val--) {
-          HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val);
-          HAL_Delay(1);
-      }
+    for(uint32_t val = 0 ; val<4096; val++) {
+      HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val);
+      HAL_Delay(1);
+    }
+    for(uint32_t val = 4094 ; val>00; val--) {
+      HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val);
+      HAL_Delay(1);
+    }
   }
   /* USER CODE END 3 */
 }

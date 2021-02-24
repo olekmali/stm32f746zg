@@ -1,0 +1,10 @@
+21:48:41 **** Incremental Build of configuration Debug for project 005_pwm_n_int ****
+make -j8 all 
+arm-none-eabi-size   005_pwm_n_int.elf 
+   text	   data	    bss	    dec	    hex	filename
+  17964	     20	   2796	  20780	   512c	005_pwm_n_int.elf
+Finished building: default.size.stdout
+ 
+
+21:48:42 Build Finished. 0 errors, 0 warnings. (took 290ms)
+
