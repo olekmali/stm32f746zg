@@ -1,4 +1,4 @@
-21:49:02 **** Incremental Build of configuration Debug for project review3_2020 ****
+11:26:08 **** Incremental Build of configuration Debug for project review3_2020 ****
 make -j8 all 
 arm-none-eabi-size   review3_2020.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   review3_2020.elf
 Finished building: default.size.stdout
  
 
-21:49:03 Build Finished. 0 errors, 0 warnings. (took 559ms)
+11:26:09 Build Finished. 0 errors, 0 warnings. (took 828ms)
 

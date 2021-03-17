@@ -1,4 +1,4 @@
-21:48:57 **** Incremental Build of configuration Debug for project 205_ntp ****
+11:26:03 **** Incremental Build of configuration Debug for project 205_ntp ****
 make -j8 all 
 arm-none-eabi-size   205_ntp.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   205_ntp.elf
 Finished building: default.size.stdout
  
 
-21:48:58 Build Finished. 0 errors, 0 warnings. (took 604ms)
+11:26:03 Build Finished. 0 errors, 0 warnings. (took 762ms)
 

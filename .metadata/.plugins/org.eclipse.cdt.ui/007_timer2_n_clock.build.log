@@ -1,4 +1,4 @@
-21:48:45 **** Incremental Build of configuration Debug for project 007_timer2_n_clock ****
+11:25:49 **** Incremental Build of configuration Debug for project 007_timer2_n_clock ****
 make -j8 all 
 arm-none-eabi-size   007_timer2_n_clock.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   007_timer2_n_clock.elf
 Finished building: default.size.stdout
  
 
-21:48:45 Build Finished. 0 errors, 0 warnings. (took 243ms)
+11:25:49 Build Finished. 0 errors, 0 warnings. (took 258ms)
 

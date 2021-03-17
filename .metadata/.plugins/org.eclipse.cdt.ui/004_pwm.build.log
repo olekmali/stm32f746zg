@@ -1,4 +1,4 @@
-21:48:41 **** Incremental Build of configuration Debug for project 004_pwm ****
+11:25:47 **** Incremental Build of configuration Debug for project 004_pwm ****
 make -j8 all 
 arm-none-eabi-size   004_pwm.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   004_pwm.elf
 Finished building: default.size.stdout
  
 
-21:48:41 Build Finished. 0 errors, 0 warnings. (took 240ms)
+11:25:47 Build Finished. 0 errors, 0 warnings. (took 314ms)
 
