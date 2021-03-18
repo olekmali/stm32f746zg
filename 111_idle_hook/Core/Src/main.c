@@ -296,6 +296,7 @@ void StartDefaultTask(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+    // Low Power short LED blink to indicate that the software is operational
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
     osDelay(10);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);

@@ -64,7 +64,7 @@ __weak void vApplicationIdleHook( void )
 {
     // HAL_SuspendTick(); -- do not disable if you use HAL tick for FreeRTOS tick or delays and timeouts stop working
     HAL_PWR_EnterSLEEPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-    // HAL_ResumeTick(); // enable back the HAL tick
+    // HAL_ResumeTick(); // enable back the HAL tick if disabled above
 
    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
