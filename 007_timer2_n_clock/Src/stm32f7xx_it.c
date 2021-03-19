@@ -24,7 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
-  
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -62,7 +62,7 @@ extern TIM_HandleTypeDef htim2;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M7 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M7 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -203,11 +203,10 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0); // to verify the interrupt frequency of 2 Hz
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
   /* USER CODE END TIM2_IRQn 1 */
 }
 
