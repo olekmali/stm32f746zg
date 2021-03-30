@@ -2211,3 +2211,18 @@
 2021-03-19 01:37:38,004 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
 2021-03-19 01:37:38,775 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://sw-center.st.com:80: The target server failed to respond
 2021-03-19 01:37:38,776 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2021-03-19 11:11:39,815 [INFO] Activator:170 - 
+
+
+2021-03-19 11:11:39,824 [INFO] Activator:171 - !SESSION log4j initialized
+2021-03-30 16:26:55,499 [INFO] Activator:170 - 
+
+
+2021-03-30 16:26:55,503 [INFO] Activator:171 - !SESSION log4j initialized
+2021-03-30 16:29:28,425 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Mar 30, 2021 4:29:28 PM java.util.prefs.WindowsPreferences WindowsRegOpenKey1
+2021-03-30 16:29:28,429 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] WARNING: Trying to recreate Windows registry node Software\Classes\eclipse+command at root 0x80000001.
+2021-03-30 16:29:28,429 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-03-30 16:29:28,432 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Mar 30, 2021 4:29:28 PM java.util.prefs.WindowsPreferences WindowsRegOpenKey1
+2021-03-30 16:29:28,435 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] WARNING: Trying to recreate Windows registry node Software\Classes\eclipse+mpc at root 0x80000001.
+2021-03-30 16:29:28,435 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-03-30 16:36:43,321 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
