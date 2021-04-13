@@ -1,22 +1,29 @@
 //org.eclipse.ui.commands/state/com.st.stm32cube.ide.mcu.buildanalyzer.showstate/org.eclipse.ui.commands.radioState=human
 //org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
-ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.cdt.ui.presentation
-ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.cdt.ui.buildconsole.ConsoleFont
-REMOTE_COMMANDS_VIEW_FONT=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
+ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc\tTorg.eclipse.cdt.ui.presentation
+ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jface.textfont
+REMOTE_COMMANDS_VIEW_FONT=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
 UIActivities.org.eclipse.cdt.debug.dsfgdbActivity=true
 eclipse.preferences.version=1
-editors=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<editors>\r\n<descriptor id\="org.eclipse.ui.browser.editorSupport" image\="$nl$/icons/obj16/internal_browser.png" internal\="false" label\="Web Browser" launcher\="org.eclipse.ui.internal.browser.BrowserLauncher" openMode\="4" open_in_place\="false" plugin\="org.eclipse.ui.browser"/>\r\n<descriptor class\="com.st.stm32cube.ide.mpu.linux.ide.editor.DTSEditor" id\="com.st.stm32cube.ide.mpu.linux.ide.editor.DTSEditor" image\="icons/dts_icon.png" internal\="true" label\="Device Tree Editor" openMode\="1" open_in_place\="false" plugin\="com.st.stm32cube.ide.mpu.linux.ide"/>\r\n<descriptor class\="com.st.stm32cube.common.mx.editor.CubeMxEditor" id\="com.st.stm32cube.common.mx.startCubeMx" image\="icons/MicroXplorer.png" internal\="true" label\="Device Configuration Tool" openMode\="1" open_in_place\="false" plugin\="com.st.stm32cube.common.mx"/>\r\n<descriptor class\="com.st.stm32cube.ide.mcu.linker.ui.ui.editors.LDMultiEditorPart" id\="com.st.stm32cube.ide.mcu.ldeditor.ui.editors.LDPageEditor" image\="icons/ldscript_icon.png" internal\="true" label\="Linker Script Editor" openMode\="1" open_in_place\="false" plugin\="com.st.stm32cube.ide.mcu.linker"/>\r\n</editors>
-org.eclipse.cdt.debug.ui.ModulesDetailPaneFont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.cdt.internal.ui.compare.AsmMergeViewer=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.cdt.internal.ui.compare.CMergeViewer=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.cdt.make.internal.ui.compare.MakefileMergeViewer=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.cdt.ui.buildconsole.ConsoleFont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.cdt.ui.editors.textfont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.debug.ui.DetailPaneFont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.debug.ui.MemoryViewTableFont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.debug.ui.consoleFont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.jface.textfont=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="CTRL+F11"/>\r\n</org.eclipse.ui.commands>
-resourcetypes=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<editors version\="3.1">\r\n<info extension\="shtml" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="dtsi" name\="*">\r\n<editor id\="com.st.stm32cube.ide.mpu.linux.ide.editor.DTSEditor"/>\r\n</info>\r\n<info extension\="dts" name\="*">\r\n<editor id\="com.st.stm32cube.ide.mpu.linux.ide.editor.DTSEditor"/>\r\n</info>\r\n<info extension\="htm" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="html" name\="*">\r\n<editor id\="org.eclipse.ui.browser.editorSupport"/>\r\n</info>\r\n<info extension\="ioc" name\="*">\r\n<editor id\="com.st.stm32cube.common.mx.startCubeMx"/>\r\n</info>\r\n<info extension\="ld" name\="*">\r\n<editor id\="com.st.stm32cube.ide.mcu.ldeditor.ui.editors.LDPageEditor"/>\r\n</info>\r\n</editors>
-terminal.views.view.font.definition=1|Consolas|16.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
+org.eclipse.cdt.debug.ui.ModulesDetailPaneFont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.internal.ui.compare.AsmMergeViewer=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.internal.ui.compare.CMergeViewer=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.make.internal.ui.compare.MakefileMergeViewer=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.ui.buildconsole.ConsoleFont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.cdt.ui.editors.textfont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.debug.ui.DetailPaneFont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.debug.ui.MemoryViewTableFont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.debug.ui.consoleFont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.ACTIVE_TAB_INNER_KEYLINE_COLOR=255,255,255
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.ACTIVE_TAB_OUTER_KEYLINE_COLOR=218,218,218
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.ACTIVE_TAB_OUTLINE_COLOR=218,218,218
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_END=240,240,240
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.ACTIVE_UNSELECTED_TABS_COLOR_START=242,242,242
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.INACTIVE_TAB_INNER_KEYLINE_COLOR=255,255,255
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.INACTIVE_TAB_OUTER_KEYLINE_COLOR=218,218,218
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.INACTIVE_TAB_OUTLINE_COLOR=218,218,218
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_END=240,240,240
+org.eclipse.e4.ui.css.theme.e4_default6.0,6.1,6.2,6.3,10.0.org.eclipse.ui.workbench.INACTIVE_UNSELECTED_TABS_COLOR_START=242,242,242
+org.eclipse.jface.textfont=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;
+terminal.views.view.font.definition=1|Consolas|14.25|0|WINDOWS|1|-19|0|0|0|400|0|0|0|0|3|2|1|49|Consolas;

@@ -1,10 +1,7 @@
-11:25:56 **** Incremental Build of configuration Debug for project 103_semaphore_from_int ****
-make -j8 all 
-arm-none-eabi-size   103_semaphore_from_int.elf 
-   text	   data	    bss	    dec	    hex	filename
-  21952	     20	  18060	  40032	   9c60	103_semaphore_from_int.elf
-Finished building: default.size.stdout
+00:51:20 **** Clean-only build of configuration Debug for project 103_semaphore_from_int ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:56 Build Finished. 0 errors, 0 warnings. (took 375ms)
+00:51:20 Build Finished. 0 errors, 0 warnings. (took 187ms)
 

@@ -17,7 +17,6 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
@@ -91,8 +90,8 @@ const char* custom_SSI_tags[] = {"lred", "lgreen", "lblue", "buser"};
 u16_t custom_SSI_handler(const char* ssi_tag_name, char *pcInsert, int iInsertLen)
 {
   if ( iInsertLen < 10 ) {
-	  // if the buffer size is smaller than the longest response then indicate an error
-	  return(-1);
+      // if the buffer size is smaller than the longest response then indicate an error
+      return(-1);
   }
 
   if (strcmp(ssi_tag_name, custom_SSI_tags[0])==0) {
@@ -148,75 +147,75 @@ u16_t custom_SSI_handler(const char* ssi_tag_name, char *pcInsert, int iInsertLe
 
 const char * setRED(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
-	if (iNumParams==1) {
-		if (atoi(pcValue[0])==1) {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-		} else {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-		}
-	}
-	return("/index.shtml");
+    if (iNumParams==1) {
+        if (atoi(pcValue[0])==1) {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+        } else {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+        }
+    }
+    return("/index.shtml");
 }
 
 const char * setGRN(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
-	if (iNumParams==1) {
-		if (atoi(pcValue[0])==1) {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-		} else {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-		}
-	}
-	return("/index.shtml");
+    if (iNumParams==1) {
+        if (atoi(pcValue[0])==1) {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+        } else {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+        }
+    }
+    return("/index.shtml");
 }
 
 const char * setBLU(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
-	if (iNumParams==1) {
-		if (atoi(pcValue[0])==1) {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-		} else {
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-		}
-	}
-	return("/index.shtml");
+    if (iNumParams==1) {
+        if (atoi(pcValue[0])==1) {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+        } else {
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+        }
+    }
+    return("/index.shtml");
 }
 
 const char * setALL(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
-	// Warning: use atoi_r instead of atoi in case you also use this function inside a RTOS task
+    // Warning: use atoi_r instead of atoi in case you also use this function inside a RTOS task
     for (int i=0; i<iNumParams; i++) {
-    	if (strcmp(pcParam[i],"red")==0) {
-    		if (atoi(pcValue[i])==1) {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
-    		} else {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
-    		}
-    	} else if (strcmp(pcParam[i],"green")==0) {
-    		if (atoi(pcValue[i])==1) {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-    		} else {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-    		}
-    	} else if (strcmp(pcParam[i],"blue")==0) {
-    		if (atoi(pcValue[i])==1) {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-    		} else {
-    			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-    		}
-    	} // else invalid parameters are simply ignored in this example
+        if (strcmp(pcParam[i],"red")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+            }
+        } else if (strcmp(pcParam[i],"green")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+            }
+        } else if (strcmp(pcParam[i],"blue")==0) {
+            if (atoi(pcValue[i])==1) {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+            } else {
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+            }
+        } // else invalid parameters are simply ignored in this example
     }
     // we return the status page as confirmation in this example
-	return("/index.shtml");
+    return("/index.shtml");
 }
 
 #define custon_CGI_handler_num 4
 const tCGI custom_CGI_handlers[custon_CGI_handler_num] = {
-	//  file name   function called
-	{"/setall.cgi",   setALL},
-	{"/setred.cgi",   setRED},
-	{"/setgreen.cgi", setGRN},
-	{"/setblue.cgi",  setBLU}
+    //  file name   function called
+    {"/setall.cgi",   setALL},
+    {"/setred.cgi",   setRED},
+    {"/setgreen.cgi", setGRN},
+    {"/setblue.cgi",  setBLU}
 };
 
 
@@ -231,7 +230,6 @@ int main(void)
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
-  
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -252,8 +250,8 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART3_UART_Init();
-  MX_LWIP_Init();
   /* USER CODE BEGIN 2 */
+  MX_LWIP_Init();
   //set up the web server
   http_set_ssi_handler(custom_SSI_handler, custom_SSI_tags, custom_SSI_tag_num);
   http_set_cgi_handlers(custom_CGI_handlers, custon_CGI_handler_num);
@@ -289,9 +287,8 @@ int main(void)
 
   /* Start scheduler */
   osKernelStart();
- 
-  /* We should never get here as control is now taken by the scheduler */
 
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -313,14 +310,15 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
-  /** Configure LSE Drive Capability 
+  /** Configure LSE Drive Capability
   */
   HAL_PWR_EnableBkUpAccess();
-  /** Configure the main internal regulator output voltage 
+  /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_BYPASS;
@@ -334,7 +332,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -468,16 +466,19 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
+  /* init code for LWIP */
+  // MX_LWIP_Init(); -- moved to main loop user init
   /* USER CODE BEGIN 5 */
+
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END 5 */ 
+  /* USER CODE END 5 */
 }
 
-/**
+ /**
   * @brief  Period elapsed callback in non blocking mode
   * @note   This function is called  when TIM2 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
@@ -519,7 +520,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

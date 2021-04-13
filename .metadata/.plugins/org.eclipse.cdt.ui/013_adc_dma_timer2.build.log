@@ -1,10 +1,7 @@
-11:25:52 **** Incremental Build of configuration Debug for project 013_adc_dma_timer2 ****
-make -j8 all 
-arm-none-eabi-size   013_adc_dma_timer2.elf 
-   text	   data	    bss	    dec	    hex	filename
-  19800	    120	   1976	  21896	   5588	013_adc_dma_timer2.elf
-Finished building: default.size.stdout
+00:51:18 **** Clean-only build of configuration Debug for project 013_adc_dma_timer2 ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:52 Build Finished. 0 errors, 0 warnings. (took 334ms)
+00:51:19 Build Finished. 0 errors, 0 warnings. (took 188ms)
 

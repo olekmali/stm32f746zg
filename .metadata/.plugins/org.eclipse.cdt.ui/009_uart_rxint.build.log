@@ -1,10 +1,7 @@
-11:25:50 **** Incremental Build of configuration Debug for project 009_uart_rxint ****
-make -j8 all 
-arm-none-eabi-size   009_uart_rxint.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13052	     20	   1724	  14796	   39cc	009_uart_rxint.elf
-Finished building: default.size.stdout
+00:51:18 **** Clean-only build of configuration Debug for project 009_uart_rxint ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:50 Build Finished. 0 errors, 0 warnings. (took 272ms)
+00:51:18 Build Finished. 0 errors, 0 warnings. (took 172ms)
 

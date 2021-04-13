@@ -1,10 +1,7 @@
-11:25:54 **** Incremental Build of configuration Debug for project 101_first_tasks ****
-make -j8 all 
-arm-none-eabi-size   101_first_tasks.elf 
-   text	   data	    bss	    dec	    hex	filename
-  21196	     20	  18068	  39284	   9974	101_first_tasks.elf
-Finished building: default.size.stdout
+00:51:19 **** Clean-only build of configuration Debug for project 101_first_tasks ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:55 Build Finished. 0 errors, 0 warnings. (took 431ms)
+00:51:20 Build Finished. 0 errors, 0 warnings. (took 250ms)
 

@@ -1,10 +1,7 @@
-11:25:58 **** Incremental Build of configuration Debug for project 201_web_demo ****
-make -j8 all 
-arm-none-eabi-size   201_web_demo.elf 
-   text	   data	    bss	    dec	    hex	filename
- 132072	    136	  46360	 178568	  2b988	201_web_demo.elf
-Finished building: default.size.stdout
+00:51:22 **** Clean-only build of configuration Debug for project 201_web_demo ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:59 Build Finished. 0 errors, 0 warnings. (took 751ms)
+00:51:22 Build Finished. 0 errors, 0 warnings. (took 296ms)
 

@@ -1,10 +1,7 @@
-11:25:48 **** Incremental Build of configuration Debug for project 004_pwm_chn ****
-make -j8 all 
-arm-none-eabi-size   004_pwm_chn.elf 
-   text	   data	    bss	    dec	    hex	filename
-  15256	     20	   1764	  17040	   4290	004_pwm_chn.elf
-Finished building: default.size.stdout
+00:51:17 **** Clean-only build of configuration Debug for project 004_pwm_chn ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:48 Build Finished. 0 errors, 0 warnings. (took 339ms)
+00:51:17 Build Finished. 0 errors, 0 warnings. (took 173ms)
 

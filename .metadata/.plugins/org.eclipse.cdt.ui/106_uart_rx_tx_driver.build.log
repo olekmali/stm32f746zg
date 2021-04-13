@@ -1,10 +1,7 @@
-11:25:57 **** Incremental Build of configuration Debug for project 106_uart_rx_tx_driver ****
-make -j8 all 
-arm-none-eabi-size   106_uart_rx_tx_driver.elf 
-   text	   data	    bss	    dec	    hex	filename
-  25100	     20	  18092	  43212	   a8cc	106_uart_rx_tx_driver.elf
-Finished building: default.size.stdout
+00:51:20 **** Clean-only build of configuration Debug for project 106_uart_rx_tx_driver ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:58 Build Finished. 0 errors, 0 warnings. (took 393ms)
+00:51:21 Build Finished. 0 errors, 0 warnings. (took 203ms)
 

@@ -1,10 +1,7 @@
-11:25:54 **** Incremental Build of configuration Debug for project 021_int_priority ****
-make -j8 all 
-arm-none-eabi-size   021_int_priority.elf 
-   text	   data	    bss	    dec	    hex	filename
-  13852	     20	   1764	  15636	   3d14	021_int_priority.elf
-Finished building: default.size.stdout
+00:51:19 **** Clean-only build of configuration Debug for project 021_int_priority ****
+make -j8 clean 
+rm -rf *
  
 
-11:25:54 Build Finished. 0 errors, 0 warnings. (took 336ms)
+00:51:19 Build Finished. 0 errors, 0 warnings. (took 171ms)
 
