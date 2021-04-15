@@ -1,10 +1,7 @@
-00:11:43 **** Incremental Build of configuration Debug for project 206_mqtt ****
-make -j8 all 
-arm-none-eabi-size   206_mqtt.elf 
-   text	   data	    bss	    dec	    hex	filename
- 114060	    140	  45844	 160044	  2712c	206_mqtt.elf
-Finished building: default.size.stdout
- 
+02:01:27 **** Clean-only build of configuration Debug for project 206_mqtt ****
+make -j8 clean 
+make: *** No rule to make target 'clean'.  Stop.
+"make -j8 clean" terminated with exit code 2. Build might be incomplete.
 
-00:11:44 Build Finished. 0 errors, 0 warnings. (took 562ms)
+02:01:27 Build Failed. 1 errors, 0 warnings. (took 110ms)
 
