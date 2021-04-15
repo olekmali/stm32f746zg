@@ -1,7 +1,10 @@
-00:51:23 **** Clean-only build of configuration Debug for project 207_lwip_blank ****
-make -j8 clean 
-rm -rf *
+00:08:45 **** Incremental Build of configuration Debug for project 207_lwip_blank ****
+make -j8 all 
+arm-none-eabi-size   207_lwip_blank.elf 
+   text	   data	    bss	    dec	    hex	filename
+  99460	    140	  45324	 144924	  2361c	207_lwip_blank.elf
+Finished building: default.size.stdout
  
 
-00:51:24 Build Finished. 0 errors, 0 warnings. (took 375ms)
+00:08:46 Build Finished. 0 errors, 0 warnings. (took 957ms)
 
