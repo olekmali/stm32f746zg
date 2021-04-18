@@ -174,7 +174,7 @@ static void example_do_connect(mqtt_client_t *client)
   memset(&ci, 0, sizeof(ci));
 
   /* Minimal amount of information required is client identifier, so set it here */
-  ci.client_id   = "st32f746_test";
+  ci.client_id   = "st32f7-yourID"; 	// each end note MUST have an unique short client ID!
   ci.client_user = 0;  // = "UserID";   // =0; must point to NULL when not used
   ci.client_pass = 0;  // = "password"; // =0; must point to NULL when not used
   ci.keep_alive  = 0;  // optional, already set to 0

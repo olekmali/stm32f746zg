@@ -1,7 +1,7 @@
-02:01:23 **** Clean-only build of configuration Debug for project 007_timer2_n_clock ****
+00:00:38 **** Clean-only build of configuration Debug for project 007_timer2_n_clock ****
 make -j8 clean 
 make: *** No rule to make target 'clean'.  Stop.
 "make -j8 clean" terminated with exit code 2. Build might be incomplete.
 
-02:01:24 Build Failed. 1 errors, 0 warnings. (took 141ms)
+00:00:39 Build Failed. 1 errors, 0 warnings. (took 126ms)
 
