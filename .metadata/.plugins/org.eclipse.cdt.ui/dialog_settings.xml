@@ -9,7 +9,9 @@
 	<section name="CRenameRefactoringInputPage">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item key="size.width" value="640"/>
+		<item key="size.width" value="747"/>
 		<item key="size.height" value="234"/>
+	</section>
+	<section name="PDOMSearchPage">
 	</section>
 </section>
