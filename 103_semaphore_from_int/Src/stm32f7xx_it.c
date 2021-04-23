@@ -181,9 +181,9 @@ void TIM2_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-	static BaseType_t xSchedulerChanged = pdFALSE;
+	BaseType_t xSchedulerChanged = pdFALSE;
 	xSemaphoreGiveFromISR( detected_buttonHandle, &xSchedulerChanged );
-	portYIELD_FROM_ISR( xSchedulerChanged ); // if this line used then all variables must be not local but static (hidden global)
+	portYIELD_FROM_ISR( xSchedulerChanged );
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */

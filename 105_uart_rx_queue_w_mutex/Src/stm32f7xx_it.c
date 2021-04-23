@@ -182,13 +182,13 @@ void TIM2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-  static BaseType_t xSchedulerChanged = pdFALSE;
-  static uint8_t buffer;
+  BaseType_t xSchedulerChanged = pdFALSE;
+  uint8_t buffer;
   HAL_StatusTypeDef status = HAL_UART_Receive(&huart3, &buffer, 1, 0); // we are inside an interrupt - timeout of 0!
   if ( HAL_OK == status ) {
     xQueueSendFromISR(uart3_rx_queueHandle, &buffer, &xSchedulerChanged);
   }
-  portYIELD_FROM_ISR( xSchedulerChanged ); // if this line used then all variables must be not local but static (hidden global)
+  portYIELD_FROM_ISR( xSchedulerChanged );
 
   /* USER CODE END USART3_IRQn 0 */
   HAL_UART_IRQHandler(&huart3);

@@ -179,8 +179,8 @@ void TIM2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
-  static BaseType_t xSchedulerChanged = pdFALSE;
-  static uint8_t buffer;
+  BaseType_t xSchedulerChanged = pdFALSE;
+  uint8_t buffer;
 
   if( __HAL_UART_GET_IT( &huart3, UART_IT_TXE ) == SET )
   {
@@ -201,7 +201,7 @@ void USART3_IRQHandler(void)
 	xQueueSendFromISR(uart3_rx_queueHandle, &buffer, &xSchedulerChanged);
   }
 
-  portYIELD_FROM_ISR( xSchedulerChanged ); // if this line used then all variables must be not local but static (hidden global)
+  portYIELD_FROM_ISR( xSchedulerChanged );
 
 
   /* USER CODE END USART3_IRQn 0 */
