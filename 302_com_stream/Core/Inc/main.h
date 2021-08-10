@@ -43,12 +43,12 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-extern osMessageQId vcom_rx_queueHandle;
 
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+extern osMessageQId vcom_rx_queueHandle;
 
 /* USER CODE END EM */
 

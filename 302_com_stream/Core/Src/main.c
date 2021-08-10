@@ -335,24 +335,54 @@ void StartDefaultTask(void const * argument)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
   GPIO_PinState pin_status = 0;
-  static char buffer_usb_out[20];
+  char channel = 'G';
   /* Infinite loop */
   for(;;)
   {
     uint8_t buffer_usb_byte;
     BaseType_t status = xQueueReceive(vcom_rx_queueHandle, &buffer_usb_byte, 0 );
-    if ( status) {
-      if ( buffer_usb_byte=='0' ) {
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-      } else if ( buffer_usb_byte=='1' ) {
-        HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-      } else{
-        // nothing - unrecognized command
+    if (status) {
+      switch (buffer_usb_byte) {
+        case 'R': case 'G': case 'B':
+          channel=buffer_usb_byte;
+        break;
+        case '0':
+          switch(channel) {
+            case'R':
+              HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+            break;
+            case'G':
+              HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+            break;
+            case'B':
+              HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
+            break;
+          }
+        break;
+
+        case '1':
+            switch(channel) {
+              case'R':
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+              break;
+              case'G':
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+              break;
+              case'B':
+                HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
+              break;
+            }
+        break;
+        default:
+          CDC_Transmit_FS( (uint8_t *)"?", 1 );
       }
     }
+
     GPIO_PinState new_status = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
     if ( pin_status!=new_status ) {
-    	pin_status=new_status;
+      pin_status=new_status;
+      // Prepare the buffer to send the event message out
+      char buffer_usb_out[20]; // consider making it static so that it is not on the task stack
       if (pin_status) strcpy(buffer_usb_out, "pressed\r\n");
       else strcpy(buffer_usb_out, "released\r\n");
       CDC_Transmit_FS( (uint8_t *)buffer_usb_out, strlen(buffer_usb_out) );

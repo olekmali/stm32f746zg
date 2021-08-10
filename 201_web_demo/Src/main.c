@@ -312,7 +312,7 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* init code for LWIP */
-  // MX_LWIP_Init(); -- moved to main loop user init
+  // MX_LWIP_Init(); -- moved back to the main function
   /* USER CODE BEGIN 5 */
 
   /* Infinite loop */
