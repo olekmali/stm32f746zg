@@ -1,7 +1,10 @@
-13:39:56 **** Clean-only build of configuration Debug for project 114_first_static ****
-make -j8 clean 
-make: *** No rule to make target 'clean'.  Stop.
-"make -j8 clean" terminated with exit code 2. Build might be incomplete.
+23:38:09 **** Incremental Build of configuration Debug for project 114_first_static ****
+make -j8 all 
+arm-none-eabi-size   114_first_static.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18340	    124	   4964	  23428	   5b84	114_first_static.elf
+Finished building: default.size.stdout
+ 
 
-13:39:56 Build Failed. 1 errors, 0 warnings. (took 117ms)
+23:38:10 Build Finished. 0 errors, 0 warnings. (took 220ms)
 

@@ -119,5 +119,3 @@ void ADC_Start_From_ISR();
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -1,7 +1,10 @@
-13:39:56 **** Clean-only build of configuration Debug for project 113_corutines ****
-make -j8 clean 
-make: *** No rule to make target 'clean'.  Stop.
-"make -j8 clean" terminated with exit code 2. Build might be incomplete.
+23:38:09 **** Incremental Build of configuration Debug for project 113_corutines ****
+make -j8 all 
+arm-none-eabi-size   113_corutines.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18588	    124	  18180	  36892	   901c	113_corutines.elf
+Finished building: default.size.stdout
+ 
 
-13:39:56 Build Failed. 1 errors, 0 warnings. (took 101ms)
+23:38:09 Build Finished. 0 errors, 0 warnings. (took 221ms)
 

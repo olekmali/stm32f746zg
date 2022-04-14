@@ -219,7 +219,7 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 
   /* USER CODE END EXTI15_10_IRQn 0 */
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+  HAL_GPIO_EXTI_IRQHandler(USER_Btn_Pin);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);     // switch on LED2
   // HAL_Delay(2000); // uncomment to test if the HAL System Timer still works
@@ -236,4 +236,4 @@ void EXTI15_10_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+

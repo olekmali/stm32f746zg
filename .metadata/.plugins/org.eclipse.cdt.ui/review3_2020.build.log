@@ -1,7 +1,10 @@
-00:00:43 **** Clean-only build of configuration Debug for project review3_2020 ****
-make -j8 clean 
-make: *** No rule to make target 'clean'.  Stop.
-"make -j8 clean" terminated with exit code 2. Build might be incomplete.
+23:38:15 **** Incremental Build of configuration Debug for project review3_2020 ****
+make -j8 all 
+arm-none-eabi-size   review3_2020.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 113536	    156	  46428	 160120	  27178	review3_2020.elf
+Finished building: default.size.stdout
+ 
 
-00:00:43 Build Failed. 1 errors, 0 warnings. (took 125ms)
+23:38:15 Build Finished. 0 errors, 0 warnings. (took 285ms)
 

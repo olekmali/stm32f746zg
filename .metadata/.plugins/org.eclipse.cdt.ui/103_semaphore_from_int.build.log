@@ -1,7 +1,10 @@
-13:39:55 **** Clean-only build of configuration Debug for project 103_semaphore_from_int ****
-make -j8 clean 
-make: *** No rule to make target 'clean'.  Stop.
-"make -j8 clean" terminated with exit code 2. Build might be incomplete.
+23:38:07 **** Incremental Build of configuration Debug for project 103_semaphore_from_int ****
+make -j8 all 
+arm-none-eabi-size   103_semaphore_from_int.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23116	    124	  18188	  41428	   a1d4	103_semaphore_from_int.elf
+Finished building: default.size.stdout
+ 
 
-13:39:55 Build Failed. 1 errors, 0 warnings. (took 116ms)
+23:38:07 Build Finished. 0 errors, 0 warnings. (took 226ms)
 

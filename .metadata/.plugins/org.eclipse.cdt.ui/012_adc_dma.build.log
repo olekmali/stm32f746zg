@@ -1,7 +1,10 @@
-13:39:54 **** Clean-only build of configuration Debug for project 012_adc_dma ****
-make -j8 clean 
-make: *** No rule to make target 'clean'.  Stop.
-"make -j8 clean" terminated with exit code 2. Build might be incomplete.
+23:38:05 **** Incremental Build of configuration Debug for project 012_adc_dma ****
+make -j8 all 
+arm-none-eabi-size   012_adc_dma.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19132	    120	   1928	  21180	   52bc	012_adc_dma.elf
+Finished building: default.size.stdout
+ 
 
-13:39:54 Build Failed. 1 errors, 0 warnings. (took 116ms)
+23:38:05 Build Finished. 0 errors, 0 warnings. (took 220ms)
 
