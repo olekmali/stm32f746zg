@@ -122,7 +122,7 @@ static void mqtt_incoming_data_cb(void *arg, const u8_t *data, u16_t len, u8_t f
   } else {
     /* Handle fragmented payload, store in buffer, write to file or whatever */
   }
-  HAL_UART_Transmit(&huart3, "Sin", 3, 2);
+  HAL_UART_Transmit(&huart3, (void*)"Sin", 3, 2);
 }
 
 
@@ -134,7 +134,7 @@ static void mqtt_sub_request_cb(void *arg, err_t result)
     if (result != ERR_OK ) {
         mqtt_disconnect(arg);
         // the task loop will try to reconnect and subscribe again
-        HAL_UART_Transmit(&huart3, "Ser", 3, 2);
+        HAL_UART_Transmit(&huart3, (void*)"Ser", 3, 2);
     }
 }
 
@@ -155,13 +155,13 @@ static void mqtt_connection_cb(mqtt_client_t *client, void *arg, mqtt_connection
         // Note: either an immediate error that something went very wrong or,
         //        otherwise, the error code -4 telling that the actual status
         //        will be reported later when the callback function is called
-        HAL_UART_Transmit(&huart3, "Sfa", 3, 2);
+        HAL_UART_Transmit(&huart3, (void*)"Sfa", 3, 2);
     }
-    HAL_UART_Transmit(&huart3, "Cok", 3, 2);
+    HAL_UART_Transmit(&huart3, (void*)"Cok", 3, 2);
   } else {
     /* Its more nice to be connected, so try to reconnect */
     example_do_connect(client);
-    HAL_UART_Transmit(&huart3, "Cer", 3, 2);
+    HAL_UART_Transmit(&huart3, (void*)"Cer", 3, 2);
   }
 }
 
@@ -174,7 +174,7 @@ static void example_do_connect(mqtt_client_t *client)
   memset(&ci, 0, sizeof(ci));
 
   /* Minimal amount of information required is client identifier, so set it here */
-  ci.client_id   = "st32f7-yourID"; 	// each end note MUST have an unique short client ID!
+  ci.client_id   = "st32f7-userID"; 	// each end note MUST have an unique short client ID!
   ci.client_user = 0;  // = "UserID";   // =0; must point to NULL when not used
   ci.client_pass = 0;  // = "password"; // =0; must point to NULL when not used
   ci.keep_alive  = 0;  // optional, already set to 0
@@ -185,11 +185,16 @@ static void example_do_connect(mqtt_client_t *client)
      For now MQTT version 3.1.1 is always used */
 
 
-  // test.mosquitto.org or 5.196.95.208
   ip_addr_t mqtt_server_addr;
-  IP4_ADDR( &mqtt_server_addr, 5, 196, 95, 208 );
+  // uncomment only one option below:
+     // Choice 1: test.mosquitto.org => 5.196.95.208
+  // IP4_ADDR( &mqtt_server_addr, 5, 196, 95, 208 );
+     // Choice 2: mqtt.eclipseprojects.io => 137.135.83.217
+  // IP4_ADDR( &mqtt_server_addr, 137, 135, 83, 217 );
+     // Choice 3: a server on a local computer
+  IP4_ADDR( &mqtt_server_addr, 192, 168, 88, 94);
   err = mqtt_client_connect(client, &mqtt_server_addr, MQTT_PORT, mqtt_connection_cb, 0, &ci);
-  HAL_UART_Transmit(&huart3, "Ctr", 3, 2);
+  HAL_UART_Transmit(&huart3, (void*)"Ctr", 3, 2);
 
   /* For now just print the result code if something goes wrong */
   if(err != ERR_OK) {
@@ -197,7 +202,7 @@ static void example_do_connect(mqtt_client_t *client)
     // Note: either an immediate error that something went very wrong or,
     //        otherwise, the error code -4 telling that the actual status
     //        will be reported later when the callback function is called
-    HAL_UART_Transmit(&huart3, "Cfa", 3, 2);
+    HAL_UART_Transmit(&huart3, (void*)"Cfa", 3, 2);
   }
 }
 
@@ -208,7 +213,7 @@ static void mqtt_pub_request_cb(void *arg, err_t result)
 {
   if(result != ERR_OK) {
     // .. the message did not get out
-      HAL_UART_Transmit(&huart3, "Per", 3, 2);
+    HAL_UART_Transmit(&huart3, (void*)"Per", 3, 2);
   }
 }
 
@@ -224,7 +229,7 @@ void example_publish(mqtt_client_t *client, const char * payload, void *arg)
     //        otherwise, the error code -4 telling that the actual status
     //        will be reported later when the callback function is called
   }
-  HAL_UART_Transmit(&huart3, "Pub", 3, 2);
+  HAL_UART_Transmit(&huart3, (void*)"Pub", 3, 2);
 }
 
 
@@ -464,20 +469,26 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* init code for LWIP */
-  // MX_LWIP_Init(); -- moved back to the main function
+  // MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
 
   /* Infinite loop */
   GPIO_PinState old = GPIO_PIN_RESET;
+  unsigned int mqtt_reconnect_cnt = 0;
   for(;;)
   {
     // periodically check if MQTT is connected and (re)connect if needed
     if ( ! mqtt_client_is_connected(&mqtt_client_state) ) {
-      example_do_connect(&mqtt_client_state);
-      // Note: this is a non-blocking call as all of the MQTT - will not wait until connected
-          // Any delay is not really needed to prevent from starting multiple attempts in parallel
-          // because subsequent attempts are ignored as long as the corresponding TCP socket state
-          // is not "fully disconnected"
+      if (mqtt_reconnect_cnt>0) {
+        mqtt_reconnect_cnt--;
+      } else {
+        example_do_connect(&mqtt_client_state);
+        // Note: this is a non-blocking call as all of the MQTT - will not wait until connected
+            // Any delay is not really needed to prevent from starting multiple attempts in parallel
+            // because subsequent attempts are ignored as long as the corresponding TCP socket state
+            // is not "fully disconnected"
+        mqtt_reconnect_cnt = 500; // but... allow five seconds to prevent flood of requests
+      }
     }
     GPIO_PinState b = HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13);
     if (b!=old) {
