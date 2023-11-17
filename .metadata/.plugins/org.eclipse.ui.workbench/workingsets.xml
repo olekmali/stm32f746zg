@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1649906212698_1" label="DEMOS" name="DEMOS"/>
-<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1618097996571_0" label="Window Working Set" name="Aggregate for window 1618097996571"/>
-<mruList name="DEMOS"/>
+<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1677314906226_1" label="ECE471DEMOS" name="ECE471DEMOS">
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/004_pwm" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/205_ntp" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/008_uart" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/rewiew25" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/003_timer" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/006_sleep" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/004_pwm_chn" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/012_adc_dma" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/102_adc_pwm" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/112_tickless" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/301_com_port" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/review1_2020" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/review2_2020" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/review3_2020" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/005_pwm_n_int" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/111_idle_hook" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/113_corutines" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/207_lwip_diag" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/001_digital_io" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/009_uart_rxint" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/011_adc_simple" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/015_dac_simple" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/202_web_static" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/302_com_stream" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/101_first_tasks" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/021_int_priority" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/114_first_static" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/010_uart_crosscom" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/104_uart_rx_queue" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/002_digital_io_int" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/007_timer2_n_clock" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/013_adc_dma_timer2" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/016_dac_dma_timer2" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/203_web_interactive" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/106_uart_rx_tx_driver" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/014_adc_dma_timer2_int" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/103_semaphore_from_int" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/105_uart_rx_queue_w_mutex" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/203_web_interactive_2020" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/203_web_interactive_static_ip" type="4"/>
+<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/206_mqtt_2020" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1677314845054_0" label="Window Working Set" name="Aggregate for window 1677314845053"/>
+<mruList name="ECE471DEMOS"/>
 </workingSetManager>

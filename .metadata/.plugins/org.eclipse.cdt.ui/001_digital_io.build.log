@@ -1,10 +1,10 @@
-01:09:47 **** Incremental Build of configuration Debug for project 001_digital_io ****
+00:58:35 **** Incremental Build of configuration Debug for project 001_digital_io ****
 make -j8 all 
 arm-none-eabi-size   001_digital_io.elf 
    text	   data	    bss	    dec	    hex	filename
-  13620	     20	   2732	  16372	   3ff4	001_digital_io.elf
+  13700	     20	   2732	  16452	   4044	001_digital_io.elf
 Finished building: default.size.stdout
  
 
-01:09:47 Build Finished. 0 errors, 0 warnings. (took 270ms)
+00:58:36 Build Finished. 0 errors, 0 warnings. (took 166ms)
 

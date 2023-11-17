@@ -9,24 +9,19 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/206_mqtt_2020"/>
+			<item value="/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/203_web_interactive_static_ip"/>
+			<item value="/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/203_web_interactive_ip"/>
+			<item value="/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/203_web_interactive_2020"/>
 			<item value="/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS"/>
-			<item value="D:\PROJECTS\RTOS\STM\DEMOS"/>
 		</list>
 	</section>
 	<section name="CleanDialogSettings">
-		<item key="TOGGLE_SELECTED" value="false"/>
-		<item key="DIALOG_WIDTH" value="569"/>
-		<item key="DIALOG_HEIGHT" value="472"/>
-		<item key="DIALOG_FONT_NAME" value="1|Sans|10.0|0|GTK|1|"/>
 		<item key="BUILD_NOW" value="true"/>
 		<item key="BUILD_ALL" value="true"/>
-	</section>
-	<section name="ChooseWorkspaceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="603"/>
-		<item key="DIALOG_Y_ORIGIN" value="329"/>
-	</section>
-	<section name="WORKBENCH_SETTINGS">
-		<list key="ENABLED_TRANSFERS">
-		</list>
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="569"/>
+		<item key="DIALOG_HEIGHT" value="476"/>
+		<item key="DIALOG_FONT_NAME" value="1|Sans|10.0|0|GTK|1|"/>
 	</section>
 </section>

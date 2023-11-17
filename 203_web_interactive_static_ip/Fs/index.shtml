@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><title>STM32F7xx</title></head>
+<body style="color: black; background-color: white;">
+
+<h1>Bradley University ECE 471/571 STM32F7xx-based Interactive Web Server Demo</h1>
+<p><img src="bu.png" alt="BU logo"></p>
+
+<h2>Status Only</h2>
+
+<table>
+<!-- this is a comment to remind you that by default LwIP config
+each tag name (like those below) cannot be longer than 8 characters-->
+<tr><td>Red LED</td><td><!--#lred--></td></tr>
+<tr><td>Green LED</td><td><!--#lgreen--></td></tr>
+<tr><td>Blue LED</td><td><!--#lblue--></td></tr>
+<tr><td>User Button</td><td><!--#buser--></td></tr>
+</table>
+
+<h2>Set all LEDs at the same time using CGI</h2>
+
+<form action="/setall.cgi">
+<table>
+<!-- Set LWIP_HTTPD_SSI_INCLUDE_TAG: Disabled.
+     Otherwise, the server ads content after the tag instead of replacing a tag. -->
+<tr><td>Red</td>  <td><input type="text" size="3" name="red"   value="<!--#lred-->" ></td></tr>
+<tr><td>Green</td><td><input type="text" size="3" name="green" value="<!--#lgreen-->" ></td></tr>
+<tr><td>Blue</td> <td><input type="text" size="3" name="blue"  value="<!--#lblue-->" ></td></tr>
+</table>
+<input type="submit" value="set all">
+</form>
+
+<h2>Control a single item</h2>
+
+<table>
+<!-- this is a comment to remind you that by default LwIP config
+each tag name (like those below) cannot be longer than 8 characters-->
+<tr><td>Red LED</td>    <td><!--#lred--></td>   <td><a href="setred.cgi?val=0">off</a></td>   <td><a href="setred.cgi?val=1">on</a></td>      </tr>
+<tr><td>Green LED</td>  <td><!--#lgreen--></td> <td><a href="setgreen.cgi?val=0">off</a></td> <td><a href="setgreen.cgi?val=1">on</a></td>    </tr>
+<tr><td>Blue LED</td>   <td><!--#lblue--></td>  <td><a href="setblue.cgi?val=0">off</a></td>  <td><a href="setblue.cgi?val=1">on</a></td>     </tr>
+</table>
+
+
+</body>
+</html>

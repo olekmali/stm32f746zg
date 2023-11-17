@@ -1,10 +1,10 @@
-23:38:10 **** Incremental Build of configuration Debug for project 201_web_demo ****
+23:30:28 **** Incremental Build of configuration Debug for project 201_web_demo ****
 make -j8 all 
 arm-none-eabi-size   201_web_demo.elf 
    text	   data	    bss	    dec	    hex	filename
- 143152	    140	  46412	 189704	  2e508	201_web_demo.elf
+ 144732	    472	  53360	 198564	  307a4	201_web_demo.elf
 Finished building: default.size.stdout
  
 
-23:38:10 Build Finished. 0 errors, 0 warnings. (took 329ms)
+23:30:28 Build Finished. 0 errors, 0 warnings. (took 165ms)
 

@@ -1,24 +1,21 @@
-17:35:58 **** Incremental Build of configuration Debug for project 206_mqtt ****
+23:30:22 **** Incremental Build of configuration Debug for project 201_web_demo ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Inc -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "206_mqtt.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/206_mqtt/STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="206_mqtt.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 206_mqtt.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Inc -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/LwIP/src/include/netif/ppp -I../Middlewares/Third_Party/LwIP/src/include/lwip/priv -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Middlewares/Third_Party/LwIP/src/include/compat/stdc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Middlewares/Third_Party/LwIP/src/include/lwip/prot -I../Middlewares/Third_Party/LwIP/src/include/lwip/apps -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/sys -I../Middlewares/Third_Party/LwIP/system/arch -I../Middlewares/Third_Party/LwIP/src/include -I../Middlewares/Third_Party/LwIP/src/include/compat/posix -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1 -I../Middlewares/Third_Party/LwIP/src/include/lwip -I../Middlewares/Third_Party/LwIP/src/apps/http -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/net -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/LwIP/src/include/compat/posix/arpa -I../Middlewares/Third_Party/LwIP/system -I../Middlewares/Third_Party/LwIP/src/include/netif -I../Drivers/BSP/Components/lan8742 -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "201_web_demo.elf" @"objects.list"   -mcpu=cortex-m7 -T"/home/olekmali/Data/PROJECTS/RTOS/STM/DEMOS/201_web_demo/STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="201_web_demo.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 201_web_demo.elf
  
-arm-none-eabi-size   206_mqtt.elf 
-arm-none-eabi-objdump -h -S  206_mqtt.elf  > "206_mqtt.list"
-arm-none-eabi-objcopy  -O binary  206_mqtt.elf  "206_mqtt.bin"
+arm-none-eabi-size   201_web_demo.elf 
+arm-none-eabi-objdump -h -S  201_web_demo.elf  > "201_web_demo.list"
    text	   data	    bss	    dec	    hex	filename
- 114212	    140	  45844	 160196	  271c4	206_mqtt.elf
+ 144732	    472	  53360	 198564	  307a4	201_web_demo.elf
 Finished building: default.size.stdout
  
-Finished building: 206_mqtt.bin
+Finished building: 201_web_demo.list
  
-Finished building: 206_mqtt.list
- 
-17:36:07 **** Incremental Build of configuration Debug for project 206_mqtt ****
+23:30:28 **** Incremental Build of configuration Debug for project 201_web_demo ****
 make -j8 all 
-arm-none-eabi-size   206_mqtt.elf 
+arm-none-eabi-size   201_web_demo.elf 
    text	   data	    bss	    dec	    hex	filename
- 114212	    140	  45844	 160196	  271c4	206_mqtt.elf
+ 144732	    472	  53360	 198564	  307a4	201_web_demo.elf
 Finished building: default.size.stdout
  
